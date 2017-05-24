@@ -1,0 +1,37 @@
+{
+  "name": "bilbokningen",
+  "version": "1.0.0",
+  "description": "Final assignment of advanced webapplication development 1",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oskareriksson/bilbokningen.git"
+  },
+  "author": "Oskar Eriksson, Gustav Palm",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/oskareriksson/bilbokningen/issues"
+  },
+  "homepage": "https://github.com/oskareriksson/bilbokningen#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "express": "^4.15.3",
+    "express-session": "^1.15.3",
+    "mongodb": "^2.2.27",
+    "mongoose": "^4.10.2",
+    "passport": "^0.3.2",
+    "passport-local-mongoose": "^4.0.0",
+    "pug": "^2.0.0-rc.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.4.1",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
+  }
+}
