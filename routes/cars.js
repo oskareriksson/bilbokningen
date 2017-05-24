@@ -40,7 +40,7 @@ router.patch("/updatecar/:id", isLoggedIn, (req, res) => {
   Car.findByIdAndUpdate(req.params.id,
     {
       brand: req.body.brand,
-      transmission: req.body.transmission,
+      automatic: req.body.automatic,
       seats: req.body.seats,
       roofRack: req.body.roofRack,
       towbar: req.body.towbar,

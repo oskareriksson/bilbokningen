@@ -40,7 +40,7 @@ router.post("/rentcar", isLoggedIn, (req, res) => {
       let pricePerDay = selectedCar.pricePerDay;
 
       reservation.car.brand = selectedCar.brand;
-      reservation.car.transmission = selectedCar.transmission;
+      reservation.car.automatic = selectedCar.automatic;
       reservation.car.seats = selectedCar.seats;
       reservation.car.roofRack = selectedCar.roofRack;
       reservation.car.towbar = selectedCar.towbar;

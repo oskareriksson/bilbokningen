@@ -12,7 +12,7 @@ const Reservation = new Schema({
   totalPrice: {type: Number},
   car: {
     brand: {type: String},
-    transmission: {type: String},
+    automatic: {type: Boolean},
     seats: {type: Number},
     roofRack: {type: Boolean},
     towbar: {type: Boolean},
