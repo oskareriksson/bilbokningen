@@ -11,6 +11,9 @@ const cookieParser = require("cookie-parser");
 const session = require("express-session");
 const pug = require("pug");
 
+//Had to set port manually for Mocha to work, will look into it later
+const port = process.env.PORT || 4000;
+
 //User model for authentication
 const User = require("./models/User.js");
 
@@ -58,6 +61,6 @@ app.use("/users", userRoutes);
 app.use("/cars", carRoutes);
 app.use("/reservations", reservations);
 
-server.listen(process.env.PORT, () => {
+server.listen(port, () => {
   console.log(`Listening on port ${process.env.PORT}`);
 });
