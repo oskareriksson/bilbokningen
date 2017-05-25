@@ -1,4 +1,4 @@
 const assert = require("assert");
-const app = require("../app.js");
+const app = require("../server.js");
 const request = require("supertest");
 
