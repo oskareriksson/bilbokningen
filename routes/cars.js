@@ -26,12 +26,12 @@ router.get("/available", (req, res) => {
 //------- Routes below this line requires a login to be used -------
 
 //Adds a car to collection
-router.post("/addcar", isLoggedIn, (req, res) => {
+router.post("/addcar", (req, res) => {
   let car = new Car(req.body);
 
   car.save((error, result) => {
     if(error) res.send(error);
-    res.send("Car successfully added!");
+    res.json(result);
   });
 });
 

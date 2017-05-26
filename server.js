@@ -23,6 +23,7 @@ const reservations = require("./routes/reservations.js");
 app.set("view engine", "pug");
 app.use("/public", express.static("public"));
 
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
