@@ -54,14 +54,12 @@ describe("Reservation Tests", () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.should.have.header("content-type", "application/json; charset=utf-8");
-
         for(let i = 0; i < res.body.length; i++) {
           //rentedBy
           res.body[i].rentedBy.should.have.property("email");
           res.body[i].rentedBy.should.have.property("firstName");
           res.body[i].rentedBy.should.have.property("lastName");
           res.body[i].rentedBy.should.have.property("phoneNumber");
-
           //car
           res.body[i].car.should.have.property("towbar");
           res.body[i].car.should.have.property("roofRack");
@@ -69,9 +67,18 @@ describe("Reservation Tests", () => {
           res.body[i].car.should.have.property("automatic");
           res.body[i].car.should.have.property("brand");
         }
-
         done(err);
       });
   });
+
+  //This test DELETES the car we previously POSTed
+  /*it("Should DELETE the reservation that we previously POSTed", (done) => {
+    chai.request(app)
+      .delete("/reservations/cancel/:id")
+      .end((err, res) => {
+        console.log(res);
+        done(err);
+      });
+  });*/
 
 });
