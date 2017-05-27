@@ -36,7 +36,7 @@ router.post("/addcar", (req, res) => {
 });
 
 //Updates a car in collection by ID
-router.patch("/updatecar/:id", isLoggedIn, (req, res) => {
+router.patch("/updatecar/:id", (req, res) => {
   Car.findByIdAndUpdate(req.params.id,
     {
       brand: req.body.brand,
@@ -49,7 +49,7 @@ router.patch("/updatecar/:id", isLoggedIn, (req, res) => {
     },
     (error, result) => {
       if(error) res.send(error);
-      res.send("Car successfully updated!");
+      res.json(result);
     });
 });
 
