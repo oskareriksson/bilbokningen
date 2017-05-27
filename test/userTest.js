@@ -45,4 +45,21 @@ describe("User Tests", () => {
       });
   });
 
+  //This test should GET all registered users
+  it("Should GET all users from database", (done) => {
+    agent
+      .get("/users/all")
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.have.header("content-type", "application/json; charset=utf-8");
+        for(let i = 0; i < res.body.length; i++) {
+          res.body[i].should.have.property("email");
+          res.body[i].should.have.property("firstName");
+          res.body[i].should.have.property("lastName");
+          res.body[i].should.have.property("phoneNumber");
+        }
+        done(err);
+      });
+  });
+
 });
