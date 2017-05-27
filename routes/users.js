@@ -48,7 +48,7 @@ router.get("/all", isLoggedIn, (req, res) => {
 //Logout route
 router.get("/logout", isLoggedIn, (req, res) => {
   req.logout();
-  console.log("Successfully logged out!");
+  console.log("\n" + "Successfully logged out!");
   res.redirect("/");
 });
 

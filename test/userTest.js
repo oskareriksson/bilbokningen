@@ -33,7 +33,7 @@ describe("User Tests", () => {
       });
   });
 
-  //This test logs in the user that we just registered
+  //This test login the user that we just registered
   it("Should login the user", (done) => {
     agent
       .post("/users/login")
@@ -62,4 +62,14 @@ describe("User Tests", () => {
       });
   });
 
+  //This test should logout the user
+  it("Should logout the user", (done) => {
+    agent
+      .get("/users/logout")
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.have.header("content-type", "text/html; charset=utf-8");
+        done(err);
+      });
+  });
 });
