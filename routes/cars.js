@@ -26,7 +26,7 @@ router.get("/available", (req, res) => {
 //------- Routes below this line requires a login to be used -------
 
 //Adds a car to collection
-router.post("/addcar", (req, res) => {
+router.post("/addcar", isLoggedIn, (req, res) => {
   let car = new Car(req.body);
 
   car.save((error, result) => {
@@ -36,7 +36,7 @@ router.post("/addcar", (req, res) => {
 });
 
 //Updates a car in collection by ID
-router.patch("/updatecar/:id", (req, res) => {
+router.patch("/updatecar/:id", isLoggedIn, (req, res) => {
   Car.findByIdAndUpdate(req.params.id,
     {
       brand: req.body.brand,
@@ -54,7 +54,7 @@ router.patch("/updatecar/:id", (req, res) => {
 });
 
 //Removes a car in collection by ID
-router.delete("/removecar/:id", (req, res) => {
+router.delete("/removecar/:id", isLoggedIn, (req, res) => {
   Car.findByIdAndRemove(req.params.id, (error, result) => {
     if(error) res.send(error);
     res.send("Car successfully removed from database!");
