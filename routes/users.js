@@ -19,19 +19,14 @@ router.post("/register", (req, res) => {
       lastName: req.body.lastName,
       phoneNumber: req.body.phoneNumber
     }), req.body.password, (error, user) => {
-      if(error) {
-        res.send(error);
-      }
-      passport.authenticate("local")(req, res, () => {
-        res.redirect("/");
-      });
+      if(error) res.send(error);
+      res.send("User successfully added!");
     });
 });
 
 //Login route
 router.post("/login", passport.authenticate("local"), (req, res) => {
-  console.log("Successfully logged in!");
-  console.log(req.user.username + "\n" + req.user.email);
+  console.log("\n" + "Successfully logged in!");
   res.redirect("/");
 });
 
