@@ -1,18 +1,20 @@
 const app = require("../server.js");
+const mongodb = require("mongodb");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
 const should = chai.should();
 
 chai.use(chaiHttp);
 
-const sampleCar = {
+let sampleCar = {
   brand: "Audi",
   automatic: true,
   seats: 2,
   roofRack: false,
   towbar: false,
   pricePerDay: 2000,
-  available: true
+  available: true,
+  _id: new mongodb.ObjectID //Custom ID for testing the "/removecar/:id" route
 };
 
 
@@ -28,7 +30,6 @@ const sampleCar2 = {
 
 describe("Car Tests", () => {
 
-  
   it("Should get cars", (done) => {
     chai.request(app)
       .get("/cars")
@@ -67,6 +68,18 @@ describe("Car Tests", () => {
         res.should.have.status(200);
         res.should.have.header("content-type", "application/json; charset=utf-8");
         res.body.should.have.property("errors");
+        done(err);
+      });
+  });
+
+  //This deletes the car that we previously added through a POST request using its ObjectID
+  it("Should remove a car", (done) => {
+    chai.request(app)
+      .delete(`/cars/removecar/${sampleCar._id}`)
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.should.have.header("content-type", "text/html; charset=utf-8");
+        res.should.have.property("text").eql("Car successfully removed from database!");
         done(err);
       });
   });

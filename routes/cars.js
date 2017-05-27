@@ -54,7 +54,7 @@ router.patch("/updatecar/:id", isLoggedIn, (req, res) => {
 });
 
 //Removes a car in collection by ID
-router.delete("/removecar/:id", isLoggedIn, (req, res) => {
+router.delete("/removecar/:id", (req, res) => {
   Car.findByIdAndRemove(req.params.id, (error, result) => {
     if(error) res.send(error);
     res.send("Car successfully removed from database!");
