@@ -13,7 +13,7 @@ const isLoggedIn = (req, res, next) => {
 //------- Routes below this line requires a login to be used -------
 
 //Lists all reservations in database
-router.get("/", (req, res) => {
+router.get("/", isLoggedIn, (req, res) => {
   Reservation.find({}, (error, result) => {
     if(error) res.send(error);
     res.json(result);
@@ -21,7 +21,7 @@ router.get("/", (req, res) => {
 });
 
 //Adds a reservation to "reservations in database"
-router.post("/rentcar", (req, res) => {
+router.post("/rentcar", isLoggedIn, (req, res) => {
   let reservation = new Reservation(req.body);
   let selectedCar;
   let selectedUser;
@@ -77,7 +77,7 @@ router.post("/rentcar", (req, res) => {
 });
 
 //Cancels and removes a reservation from the database
-router.delete("/cancel/:id", (req, res) => {
+router.delete("/cancel/:id", isLoggedIn, (req, res) => {
   let selectedCarID;
 
   Reservation.find(
