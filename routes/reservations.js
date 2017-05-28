@@ -10,6 +10,11 @@ const isLoggedIn = (req, res, next) => {
   res.redirect("/");
 };
 
+//Renders the "rentcar" view
+router.get("/rentcar", (req, res) => {
+  res.render("rentcar");
+});
+
 //------- Routes below this line requires a login to be used -------
 
 //Lists all reservations in database
