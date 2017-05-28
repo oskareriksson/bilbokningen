@@ -34,6 +34,19 @@ describe("Reservation Tests", () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.should.have.header("content-type", "application/json; charset=utf-8");
+        for(let i = 0; i < res.body.length; i++) {
+          //rentedBy
+          res.body[i].rentedBy.should.have.property("email");
+          res.body[i].rentedBy.should.have.property("firstName");
+          res.body[i].rentedBy.should.have.property("lastName");
+          res.body[i].rentedBy.should.have.property("phoneNumber");
+          //car
+          res.body[i].car.should.have.property("towbar");
+          res.body[i].car.should.have.property("roofRack");
+          res.body[i].car.should.have.property("seats");
+          res.body[i].car.should.have.property("automatic");
+          res.body[i].car.should.have.property("brand");
+        }
         done(err);
       });
   });
@@ -54,19 +67,17 @@ describe("Reservation Tests", () => {
       .end((err, res) => {
         res.should.have.status(200);
         res.should.have.header("content-type", "application/json; charset=utf-8");
-        for(let i = 0; i < res.body.length; i++) {
-          //rentedBy
-          res.body[i].rentedBy.should.have.property("email");
-          res.body[i].rentedBy.should.have.property("firstName");
-          res.body[i].rentedBy.should.have.property("lastName");
-          res.body[i].rentedBy.should.have.property("phoneNumber");
-          //car
-          res.body[i].car.should.have.property("towbar");
-          res.body[i].car.should.have.property("roofRack");
-          res.body[i].car.should.have.property("seats");
-          res.body[i].car.should.have.property("automatic");
-          res.body[i].car.should.have.property("brand");
-        }
+        //rentedBy
+        res.body.rentedBy.should.have.property("email");
+        res.body.rentedBy.should.have.property("firstName");
+        res.body.rentedBy.should.have.property("lastName");
+        res.body.rentedBy.should.have.property("phoneNumber");
+        //car
+        res.body.car.should.have.property("towbar");
+        res.body.car.should.have.property("roofRack");
+        res.body.car.should.have.property("seats");
+        res.body.car.should.have.property("automatic");
+        res.body.car.should.have.property("brand");
         done(err);
       });
   });
