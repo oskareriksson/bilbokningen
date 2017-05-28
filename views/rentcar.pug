@@ -1,0 +1,30 @@
+extends layout
+
+block content
+
+  .container-fluid
+    .row
+      .col-xs-12.text-center
+        h1 Hello! This is index.
+        p Please log in using the form below
+      .col-xs-12.text-center
+        form(method="POST" action="/reservations/rentcar")
+          .form-group
+            label(for="carID") Enter the ID of the car that the user want to rent.
+            input(type="text" name="carID" id="carID" class="form-control" placeholder="Car ID")
+          .form-group
+            label(for="userID") Enter the ID of the user that wants to rent the car.
+            input(type="text" name="userID" id="userID" class="form-control" placeholder="User ID")
+          .form-group
+            label(for="dateFrom") Enter the date that the user wants to start renting the car
+            input(type="date" name="dateFrom" id="dateFrom" class="form-control" placeholder="yyyy-mm-dd")
+          .form-group
+            label(for="dateTo") Enter the date that the user wants to return the car
+            input(type="date" name="dateTo" id="dateTo" class="form-control" placeholder="yyyy-mm-dd")
+          .form-group
+            label(for="roofRack") Does the user want a roof rack installed while renting the car?
+            input(type="text" name="roofRack" id="roofRack" class="form-control" placeholder="True or false")
+          .form-group
+            label(for="towBar") Does the user want a tow bar installed while renting the car?
+            input(type="text" name="towBar" id="towBar" class="form-control" placeholder="True or false")
+          button(type="submit" class="btn btn-default") Make a reservation

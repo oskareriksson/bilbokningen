@@ -23,6 +23,11 @@ router.get("/available", (req, res) => {
   });
 });
 
+//Renders addcar.pug
+router.get("/addcar", (req, res) => {
+  res.render("addcar");
+});
+
 //------- Routes below this line requires a login to be used -------
 
 //Adds a car to collection

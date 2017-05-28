@@ -8,6 +8,11 @@ const isLoggedIn = (req, res, next) => {
   res.redirect("/");
 };
 
+//Renders register.pug
+router.get("/register", (req, res) => {
+  res.render("register");
+});
+
 //Registering a new user and saving the user to database
 router.post("/register", (req, res) => {
   User.register(new User(

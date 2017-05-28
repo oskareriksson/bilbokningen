@@ -1,0 +1,33 @@
+extends layout
+
+block content
+
+  .container-fluid
+    .row
+      .col-xs-12.text-center
+        h1 Here you can add a car to the database.
+        p Remeber that you need to be logged in order to post!
+      .col-xs-12.text-center
+        form(method="POST" action="/cars/addcar")
+          .form-group
+            label(for="brand") Car brand
+            input(type="text" name="brand" id="brand" class="form-control" placeholder="Brand")
+          .form-group
+            label(for="automatic") Is the car automatic? True or false.
+            input(type="text" name="automatic" id="automatic" class="form-control" placeholder="True or false")
+          .form-group
+            label(for="seats") Please enter the amounts of seats of the car
+            input(type="number" name="seats" id="seats" class="form-control" placeholder="Seats")
+          .form-group
+            label(for="roofRack") Does the car have a roofrack available? True or false.
+            input(type="text" name="roofRack" id="roofRack" class="form-control" placeholder="True or false")
+          .form-group
+            label(for="towbar") Does the car have a towbar available? True or false.
+            input(type="text" name="towbar" id="towbar" class="form-control" placeholder="True or false")
+          .form-group
+            label(for="pricePerDay") What's the price per day of renting the car?
+            input(type="number" name="pricePerDay" id="pricePerDay" class="form-control" placeholder="Price per day")
+          .form-group
+            label(for="available") Is the car available for rent as of adding it to the database? True or false.
+            input(type="text" name="available" id="available" class="form-control" placeholder="True or false")
+          button(type="submit" class="btn btn-default") Add car

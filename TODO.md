@@ -3,3 +3,4 @@
 * Create tests for the "reservations.js routes"
 * Create error handling for unauthorized route access (i.e no login)
 * Look into how to make the tests work even with "isLoggedIn" function on the routes
+* Figure out how to make sure the forms in the frontend return the correct values according to the models
