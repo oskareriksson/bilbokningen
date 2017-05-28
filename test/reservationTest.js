@@ -10,8 +10,7 @@ let sampleUser = {
   email: "supermail@gmail.com",
   firstName: "Test dude",
   lastName: "McTest",
-  phoneNumber: 123456789,
-  _id: new mongodb.ObjectID
+  phoneNumber: 123456789
 };
 
 let sampleCar = {
@@ -19,7 +18,16 @@ let sampleCar = {
   automatic: true,
   seats: 2,
   roofRack: false,
-  towbar: false,
+  towbar: false
+};
+
+let sampleReservation = {
+  carID: "59294af6bd6a2c4530e5286d",
+  userID: "592a98d105f9be14a465d39a",
+  dateFrom: "2017-05-28",
+  dateTo: "2017-05-30",
+  roofRack: false,
+  towBar: false,
   _id: new mongodb.ObjectID
 };
 
@@ -35,6 +43,14 @@ describe("Reservation Tests", () => {
         res.should.have.status(200);
         res.should.have.header("content-type", "application/json; charset=utf-8");
         for(let i = 0; i < res.body.length; i++) {
+          //res.body
+          res.body[i].should.have.property("pricePerDay");
+          res.body[i].should.have.property("carID");
+          res.body[i].should.have.property("userID");
+          res.body[i].should.have.property("dateFrom");
+          res.body[i].should.have.property("dateTo");
+          res.body[i].should.have.property("roofRack");
+          res.body[i].should.have.property("towBar");
           //rentedBy
           res.body[i].rentedBy.should.have.property("email");
           res.body[i].rentedBy.should.have.property("firstName");
@@ -51,7 +67,7 @@ describe("Reservation Tests", () => {
       });
   });
 
-  //This test POSTs a reservations to the database
+  /*//This test POSTs a reservations to the database
   it("Should POST a reservation to database", (done) => {
     chai.request(app)
       .post("/reservations/rentcar")
@@ -59,8 +75,8 @@ describe("Reservation Tests", () => {
       {
         carID: "5929419d1b8a6b2744d8b7ef",
         userID: "592584f7efa2c119fce1de28",
-        dateFrom: "2017-5-27",
-        dateTo: "2017-5-30",
+        dateFrom: "2017-05-27",
+        dateTo: "2017-05-30",
         roofRack: false,
         towBar: false
       })
@@ -80,16 +96,48 @@ describe("Reservation Tests", () => {
         res.body.car.should.have.property("brand");
         done(err);
       });
+  });*/
+
+  it("Should POST a sample reservation to database", (done) => {
+    chai.request(app)
+    .post("/reservations/rentcar")
+    .send(sampleReservation)
+    .end((err, res) => {
+      res.should.have.status(200);
+      res.should.have.header("content-type", "application/json; charset=utf-8");
+      //res.body
+      res.body.should.have.property("pricePerDay");
+      res.body.should.have.property("carID");
+      res.body.should.have.property("userID");
+      res.body.should.have.property("dateFrom");
+      res.body.should.have.property("dateTo");
+      res.body.should.have.property("roofRack");
+      res.body.should.have.property("towBar");
+      //rentedBy
+      res.body.rentedBy.should.have.property("email");
+      res.body.rentedBy.should.have.property("firstName");
+      res.body.rentedBy.should.have.property("lastName");
+      res.body.rentedBy.should.have.property("phoneNumber");
+      //car
+      res.body.car.should.have.property("towbar");
+      res.body.car.should.have.property("roofRack");
+      res.body.car.should.have.property("seats");
+      res.body.car.should.have.property("automatic");
+      res.body.car.should.have.property("brand");
+      done(err);
+    });
   });
 
   //This test DELETES the car we previously POSTed
-  /*it("Should DELETE the reservation that we previously POSTed", (done) => {
+  it("Should DELETE the sample reservation that we previously POSTed", (done) => {
     chai.request(app)
-      .delete("/reservations/cancel/:id")
+      .delete(`/reservations/cancel/${sampleReservation._id}`)
       .end((err, res) => {
-        console.log(res);
+        res.should.have.status(200);
+        res.should.have.header("content-type", "text/html; charset=utf-8");
+        res.should.have.property("text").eql("Reservation successfully removed!");
         done(err);
       });
-  });*/
+  });
 
 });

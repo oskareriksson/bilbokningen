@@ -77,7 +77,7 @@ router.post("/rentcar", (req, res) => {
 });
 
 //Cancels and removes a reservation from the database
-router.delete("/cancel/:id", isLoggedIn, (req, res) => {
+router.delete("/cancel/:id", (req, res) => {
   let selectedCarID;
 
   Reservation.find(
