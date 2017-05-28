@@ -121,7 +121,7 @@ describe("Car Tests", () => {
   });
 
   //This test sends only one property of the "patchedCar", which will fail because the Car model and "updatecar" route requires all properties to exist in order to update the car
-  it("Should update the car that we previously posted", (done) => {
+  it("Should fail to update the car that we previously posted", (done) => {
     chai.request(app)
       .patch(`/cars/updatecar/${sampleCar._id}`)
       .send(patchedCar.automatic)
