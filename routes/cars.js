@@ -23,6 +23,7 @@ router.get("/available", (req, res) => {
   });
 });
 
+//Renders addcar.pug
 router.get("/addcar", (req, res) => {
   res.render("addcar");
 });
