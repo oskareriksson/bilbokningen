@@ -86,6 +86,72 @@ router.get("/audi", (req, res) => {
     });
 });
 
+//Gets all Fords in the database
+router.get("/ford", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Ford"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
+//Gets all Mercedes in the database
+router.get("/mercedes", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Mercedes"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
+//Gets all Renaults in the database
+router.get("/renault", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Renault"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
+//Gets all Mitsubishis in the database
+router.get("/mitsubishi", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Mitsubishi"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
+//Gets all Teslas in the database
+router.get("/tesla", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Tesla"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
+//Gets all Volkswagens in the database
+router.get("/volkswagen", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Volkswagen"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
 //Renders addcar.pug
 router.get("/addcar", (req, res) => {
   res.render("addcar");
