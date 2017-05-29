@@ -4,13 +4,13 @@
   "description": "Final assignment of advanced webapplication development 1",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/oskareriksson/bilbokningen.git"
   },
-  "author": "Oskar Eriksson, Gustav Palm",
+  "author": "Oskar Eriksson",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/oskareriksson/bilbokningen/issues"
