@@ -53,11 +53,22 @@ router.get("/sportscars", (req, res) => {
     });
 });
 
-//Gets all BMW's in the database
+//Gets all BMWs in the database
 router.get("/bmw", (req, res) => {
   Car.aggregate(
     [
       { $match: {brand: "BMW"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
+//Gets all Volvos in the database
+router.get("/volvo", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Volvo"}}
     ],
     (error, result) => {
       res.json(result);
