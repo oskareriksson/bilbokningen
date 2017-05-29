@@ -4,7 +4,7 @@
 
 ### Program: JavaScript Developer - Front End, YHJUST16.
 
-### Course: Web Application Development.
+### Course: Advanced Web Application Development 1.
 
 #### Technologies
 
@@ -16,13 +16,34 @@ The purpose of this assignment was to prove that I grasp the communication betwe
 
 First I used Express to setup a simple server. I then created models and routes which would be used to store data in the database via MongoDB and Mongoose. After that I created some views using PugJS and lastly created tests for the API endpoints I had time to write tests for.
 
-### Instructions
+It was supposed to be a group assignment but due to certain circumstances I ended up doing it myself, hence the lack of time to make tests for everything and make a decent frontend.
+
+#### Instructions
 
 Clone down the repo to your folder of choice and run `npm install`
 
-You'll also need a `.env` file that is unavaliable for now, might upload it later though.
+You'll also need a `.env` file to connect to the database, which I will upload after my repo has been graded.
 
+Use the API Reference down below to navigate through the endpoints.
+
+You can run the tests by simply typing `mocha` or `npm test` in the command propmt if you are in the working directory. **HOWEVER YOU NEED TO REMOVE** `isLoggedIn` **FUNCTION FROM THE ROUTES THAT HAS IT IN CARS.JS AND RESERVATIONS.JS BEFORE YOU RUN THE TEST COMMAND, IN ORDER TO MAKE THE TESTS PASS.** I've simply not had enough time to find a way to work around this.
 ### API Reference
+
+#### Users
+
+---
+
+| GET Requests                           | Requires login? |
+| -------------------------------------- |:---------------:|
+| localhost:4000/                        | No              |
+| localhost:4000/users/register          | No              |
+| localhost:4000/users/all               | Yes             |
+| localhost:4000/users/logout            | Yes             |
+
+| POST Requests                          | Requires login? |
+| -------------------------------------- |:---------------:|
+| localhost:4000/users/login             | Yes             |
+| localhost:4000/users/register          | No              |
 
 #### Cars
 
@@ -57,22 +78,6 @@ You'll also need a `.env` file that is unavaliable for now, might upload it late
 | -------------------------------------- |:---------------:|
 | localhost:4000/cars/removecar/:id      | Yes             |
 
-#### Users
-
----
-
-| GET Requests                           | Requires login? |
-| -------------------------------------- |:---------------:|
-| localhost:4000/                        | No              |
-| localhost:4000/users/register          | No              |
-| localhost:4000/users/all               | Yes             |
-| localhost:4000/users/logout            | Yes             |
-
-| POST Requests                          | Requires login? |
-| -------------------------------------- |:---------------:|
-| localhost:4000/users/login             | Yes             |
-| localhost:4000/users/register          | No              |
-
 #### Reservations
 
 ---
@@ -90,3 +95,7 @@ You'll also need a `.env` file that is unavaliable for now, might upload it late
 | -------------------------------------- |:---------------:|
 | localhost:4000/reservations/cancel/:id | Yes             |
 
+
+#### Potential future improvements
+
+See TODO.md

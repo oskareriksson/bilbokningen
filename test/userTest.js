@@ -1,4 +1,4 @@
-/*const app = require("../server.js");
+const app = require("../server.js");
 const mongodb = require("mongodb");
 const chai = require("chai");
 const chaiHttp = require("chai-http");
@@ -72,4 +72,4 @@ describe("User Tests", () => {
         done(err);
       });
   });
-});*/
+});
