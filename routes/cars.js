@@ -23,6 +23,20 @@ router.get("/available", (req, res) => {
   });
 });
 
+router.get("/familycars", (req, res) => {
+  Car.aggregate(
+    [
+      {
+        $match: {
+          seats: { $gt: 2}
+        }
+      }
+    ],
+    (err, result) => {
+      res.json(result);
+    });
+});
+
 //Renders addcar.pug
 router.get("/addcar", (req, res) => {
   res.render("addcar");
