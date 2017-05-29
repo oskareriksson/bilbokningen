@@ -75,6 +75,17 @@ router.get("/volvo", (req, res) => {
     });
 });
 
+//Gets all Audis in the database
+router.get("/audi", (req, res) => {
+  Car.aggregate(
+    [
+      { $match: {brand: "Audi"}}
+    ],
+    (error, result) => {
+      res.json(result);
+    });
+});
+
 //Renders addcar.pug
 router.get("/addcar", (req, res) => {
   res.render("addcar");
