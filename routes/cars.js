@@ -23,12 +23,28 @@ router.get("/available", (req, res) => {
   });
 });
 
+//Gets all cars with more than 2 seats
 router.get("/familycars", (req, res) => {
   Car.aggregate(
     [
       {
         $match: {
           seats: { $gt: 2}
+        }
+      }
+    ],
+    (err, result) => {
+      res.json(result);
+    });
+});
+
+//Gets all cars with less than 3 seats
+router.get("/sportscars", (req, res) => {
+  Car.aggregate(
+    [
+      {
+        $match: {
+          seats: { $lt: 3}
         }
       }
     ],
