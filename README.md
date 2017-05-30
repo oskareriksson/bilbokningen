@@ -27,6 +27,9 @@ You'll also need a `.env` file to connect to the database, which I will upload a
 Use the API Reference down below to navigate through the endpoints.
 
 You can run the tests by simply typing `mocha` or `npm test` in the command propmt if you are in the working directory. **HOWEVER YOU NEED TO REMOVE** `isLoggedIn` **FUNCTION FROM THE ROUTES THAT HAS IT IN CARS.JS AND RESERVATIONS.JS BEFORE YOU RUN THE TEST COMMAND, IN ORDER TO MAKE THE TESTS PASS.** I've simply not had enough time to find a way to work around this.
+
+Also please checkout TODO.md for further instructions/potential bugs that might hinder your use of the API reference.
+
 ### API Reference
 
 #### Users

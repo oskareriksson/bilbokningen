@@ -11,3 +11,5 @@
 * Look into how to make the tests work even with "isLoggedIn" function on the routes - Can probably make it work using an agent like I've done in userTest.js, but I don't have enough time to fix that right now
 
 * Create some sort of constraint in reservations that prevents you from adding a roof rack or a tow bar to a car that doesn't have it available.
+
+* Fix a bug with reservations/rentcar that won't let you rent a car to a future date, you can apparently only choose dateTo up until the current date.
