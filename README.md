@@ -102,3 +102,9 @@ Also please checkout TODO.md for further instructions/potential bugs that might 
 #### Potential future improvements
 
 See TODO.md
+
+### Made by: Oskar Eriksson
+
+### [Linkedin](https://se.linkedin.com/in/oskar-eriksson-827748133 "Linkedin")
+
+### Project finished: 5/30-17
